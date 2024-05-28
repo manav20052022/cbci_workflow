@@ -1,17 +1,18 @@
 apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
 name: My workflow
-
 on:
   push:
     branches:
-      - '**'
-
+      - "**"
 jobs:
   build:
     steps:
-      - name: Say hello
-        uses: docker://golang:1.20.3-alpine3.17
-        shell: sh
-        run: |
-          echo "hello world"
+      - uses: cloudbees-io/cbci-run-job@v2
+        name: Say hello
+        kind: build
+        with:
+          url: https://core.cloudbees.guru/shared-demos/
+          username: admin
+          token: ${{secrets.CBCI_Guru_Token}}
+          job-name: new_functionality_demo/job/workspace-cache/job/cache-off

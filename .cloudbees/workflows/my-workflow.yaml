@@ -16,4 +16,4 @@ jobs:
           url: https://core.cloudbees.guru/shared-demos/
           username: admin
           token: ${{secrets.CBCI_Guru_Token}}
-          job-name: new_functionality_demo/job/workspace-cache/job/cache-off
+          job-name: job/new_functionality_demo
